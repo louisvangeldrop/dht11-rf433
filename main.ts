@@ -15,13 +15,13 @@ const digitalPulseHandler = (
     pulses?: number[]
 ) => {
     kakuVCC.digitalWrite(true); // power on
-    let valueb=value==1?true:false
+    let valueb = value == 1 ? true : false
     kakuPin.digitalPulse(valueb, pulses);
     pause(30) //usleep(30 * 1000);
     kakuPin.digitalWrite(false);
     kakuVCC.digitalWrite(false);
 };
-let kaku = new ThermoHygroTransmitter(digitalPulseHandler,0,kakuChannel)
+let kaku = new ThermoHygroTransmitter(digitalPulseHandler, 0, kakuChannel)
 forever(function () {
     temp = dht.temperature()
     let dhtResult = {
@@ -37,6 +37,7 @@ forever(function () {
     for (let led of [pins.LED, pins.RXLED, pins.TXLED]) { led.digitalWrite(false) }
     pause(1000)
     for (let led of [pins.LED, pins.RXLED, pins.TXLED]) { led.digitalWrite(true) }
+    kaku.sendTempHumi(dhtResult.temperature,dhtResult.humidity)
     pause(5000)
     // control.gc() // werkt niet
     // control.reset()
