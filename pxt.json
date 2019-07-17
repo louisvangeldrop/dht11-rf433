@@ -1,0 +1,11 @@
+{
+    "name": "DHT11-RF433",
+    "dependencies": {
+        "arduino-zero": "*"
+    },
+    "description": "",
+    "files": [
+        "main.ts"
+    ],
+    "preferredEditor": "tsprj"
+}
