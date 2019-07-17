@@ -22,7 +22,7 @@ forever(function () {
     for (let led of [pins.LED, pins.RXLED, pins.TXLED]) { led.digitalWrite(false) }
     pause(1000)
     for (let led of [pins.LED, pins.RXLED, pins.TXLED]) { led.digitalWrite(true) }
-    pause(20000)
+    pause(5000)
     // control.gc() // werkt niet
-    control.reset()
+    // control.reset()
 })
