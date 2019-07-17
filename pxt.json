@@ -7,7 +7,7 @@
     "description": "",
     "files": [
         "main.ts",
-        "transmitter.ts"
+        "./rf433/transmitter.ts"
     ],
     "preferredEditor": "tsprj"
 }
