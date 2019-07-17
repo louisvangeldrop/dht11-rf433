@@ -3,7 +3,7 @@
     "dependencies": {
         "arduino-zero": "*"
     },
-    "additionalFilePath": "./rf433",
+    "additionalFilePath": "../rf433",
     "description": "",
     "files": [
         "main.ts",
