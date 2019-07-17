@@ -7,6 +7,21 @@ let temp: { tc: number; tf: number; rh: number; }
  */
 // serial.attachToConsole();
 let dht = new DHT11(pins.D11);
+let kakuPin = new DigitalPin(pins.D8); // enige pin met pull-down
+let kakuVCC = new DigitalPin(pins.D6);
+let kakuChannel = 6;
+const digitalPulseHandler = (
+    value = 0, //  start met power low
+    pulses?: number[]
+) => {
+    kakuVCC.digitalWrite(true); // power on
+    let valueb=value==1?true:false
+    kakuPin.digitalPulse(valueb, pulses);
+    pause(30) //usleep(30 * 1000);
+    kakuPin.digitalWrite(false);
+    kakuVCC.digitalWrite(false);
+};
+let kaku = new ThermoHygroTransmitter(digitalPulseHandler,0,kakuChannel)
 forever(function () {
     temp = dht.temperature()
     let dhtResult = {
