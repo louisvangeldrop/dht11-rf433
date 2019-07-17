@@ -1,7 +1,8 @@
 {
     "name": "DHT11-RF433",
     "dependencies": {
-        "arduino-zero": "*"
+        "arduino-zero": "*",
+        "rf433": "file:../rf433"
     },
     "description": "",
     "files": [
