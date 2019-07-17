@@ -3,11 +3,11 @@
     "dependencies": {
         "arduino-zero": "*"
     },
-    "additionalFilePath": "../rf433",
+    "additionalFilePath": "./rf433",
     "description": "",
     "files": [
         "main.ts",
-        "./rf433/transmitter.ts"
+        "transmitter.ts"
     ],
     "preferredEditor": "tsprj"
 }
