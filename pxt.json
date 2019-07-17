@@ -2,7 +2,8 @@
     "name": "DHT11-RF433",
     "dependencies": {
         "arduino-zero": "*",
-        "DHT11": "github:louisvangeldrop/dht11#b1c43112f01c01d39f6f01cf0058cda752d7a53b"
+        "DHT11": "github:louisvangeldrop/dht11#b1c43112f01c01d39f6f01cf0058cda752d7a53b",
+        "RF433": "github:louisvangeldrop/rf433#a166f4d7aec1a026f4d789743e6b8f9fc64e9034"
     },
     "description": "",
     "files": [
