@@ -6,7 +6,8 @@
     "additionalFilePath": "./rf433",
     "description": "",
     "files": [
-        "main.ts"
+        "main.ts",
+        "transmitter.ts"
     ],
     "preferredEditor": "tsprj"
 }
