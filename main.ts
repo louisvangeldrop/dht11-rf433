@@ -23,8 +23,10 @@ const digitalPulseHandler = (
 };
 let kaku = new ThermoHygroTransmitter(digitalPulseHandler, 0, kakuChannel)
 forever(function () {
+    let dhtResult
+try{
     temp = dht.temperature()
-    let dhtResult = {
+    dhtResult = {
         id: "sensor",
         temperature: temp.tc,
         humidity: temp.rh,
@@ -34,10 +36,16 @@ forever(function () {
     // serial.writeLine(dhtJson)
     console.log("" + dhtJson);
     //  console.log("" + riseFall);
+}
+catch(e){
+    dhtResult={temperature:22,humidity:51}
+
+}
+   
     for (let led of [pins.LED, pins.RXLED, pins.TXLED]) { led.digitalWrite(false) }
     pause(1000)
     for (let led of [pins.LED, pins.RXLED, pins.TXLED]) { led.digitalWrite(true) }
-    kaku.sendTempHumi(dhtResult.temperature,dhtResult.humidity)
+    kaku.sendTempHumi(dhtResult.temperature, dhtResult.humidity)
     pause(5000)
     // control.gc() // werkt niet
     // control.reset()
